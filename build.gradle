@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'ua.rozetka'
+version '1.0.1'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    compile group: 'com.codeborne', name: 'selenide', version: '5.2.6'
+    testCompile("io.github.bonigarcia:webdrivermanager:3.6.2")
+    compile group: 'javax.mail', name: 'mail', version: '1.4.1'
+
+}
