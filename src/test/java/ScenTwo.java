@@ -29,19 +29,33 @@ public class ScenTwo {
         OpenCategoryMenu();
         FollowDetergentsCategory();
         OpenDetergents();
-        $("#price\\[min\\]").setValue("100");
-        $("#price\\[max\\]").setValue("300");
-
-        for(SelenideElement selen:$$(detergentsCssSel)){
-            statement.executeUpdate("insert into household_chemicals(Name, Price)values(')+selen.getAttribute(nameSel)+(',)+selen.getAttribute(priceSel)+())");
+        $("#price\\[min\\]").setValue(min);
+        $("#price\\[max\\]").setValue(max).pressEnter();
+        for(SelenideElement selen:$$(nameSel)){
+            if($$(nameSel).size()==$$(priceSel).size()){
+                for(int i=0; i<$$(nameSel).size();i++){
+                    statement.executeUpdate("insert into household_chemicals(Name, Price)values('"+selen.innerText()+"',"+Integer.parseInt($$(priceSel).get(i).innerText())+")");
+                }
+            }
+            else System.out.println("Кто-то тупанул page1");
         }
         open(pageTwo);
-        for(SelenideElement selen:$$(detergentsCssSel)){
-            statement.executeUpdate("insert into household_chemicals(Name, Price)values(')+selen.getAttribute(nameSel)+(',)+selen.getAttribute(priceSel)+())");
+        for(SelenideElement selen:$$(nameSel)){
+            if($$(nameSel).size()==$$(priceSel).size()){
+                for(int i=0; i<$$(nameSel).size();i++){
+                    statement.executeUpdate("insert into household_chemicals(Name, Price)values('"+selen.innerText()+"',"+Integer.parseInt($$(priceSel).get(i).innerText())+")");
+                }
+            }
+            else System.out.println("Кто-то тупанул page 2");
         }
         open(pageThree);
-        for(SelenideElement selen:$$(detergentsCssSel)){
-            statement.executeUpdate("insert into household_chemicals(Name, Price)values('"+selen.getAttribute(nameSel)+"',"+selen.getAttribute(priceSel)+")");
+        for(SelenideElement selen:$$(nameSel)){
+            if($$(nameSel).size()==$$(priceSel).size()){
+                for(int i=0; i<$$(nameSel).size();i++){
+                    statement.executeUpdate("insert into household_chemicals(Name, Price)values('"+selen.innerText()+"',"+Integer.parseInt($$(priceSel).get(i).innerText())+")");
+                }
+            }
+            else System.out.println("Кто-то тупанулpage 3");
         }
 
         connection.close();
@@ -55,10 +69,10 @@ public class ScenTwo {
     String categoryDetergentsCssSel = ("li.cat-tree-l-i:nth-child(4)");
     String pageTwo="https://rozetka.com.ua/ua/sredstva-dlya-stirki4632103/c4632103/page=2;price=100-300/";
     String pageThree="https://rozetka.com.ua/ua/sredstva-dlya-stirki4632103/c4632103/page=3;price=100-300/";
-    String detergentsCssSel = ("");
-    String nameSel="";
-    String priceSel="";
-
+    String nameSel=".goods-tile__title";
+    String priceSel=".goods-tile__price-value";
+    String min ="100";
+    String max ="300";
 
     private void OpenMainPage() {
         open(rozetkaUrl);
@@ -76,3 +90,4 @@ public class ScenTwo {
         $(categoryDetergentsCssSel).click();
     }
 }
+
