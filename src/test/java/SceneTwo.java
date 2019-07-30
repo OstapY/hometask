@@ -30,7 +30,8 @@ public class SceneTwo {
         FollowDetergentsCategory();
         OpenDetergents();
         $("#price\\[min\\]").setValue(min);
-        $("#price\\[max\\]").setValue(max).pressEnter();
+        $("#price\\[max\\]").setValue(max);
+        $("#submitprice").click();
         for(SelenideElement selen:$$(nameSel)){
             if($$(nameSel).size()==$$(priceSel).size()){
                 for(int i=0; i<$$(nameSel).size();i++){
