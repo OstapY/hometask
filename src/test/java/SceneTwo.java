@@ -7,7 +7,7 @@ import java.sql.*;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class ScenTwo {
+public class SceneTwo {
 
     String url ="jdbc:mysql://localhost:3306/rozetkadb";
     String username = "root";
