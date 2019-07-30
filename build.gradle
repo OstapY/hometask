@@ -17,5 +17,7 @@ dependencies {
     compile group: 'com.codeborne', name: 'selenide', version: '5.2.6'
     testCompile("io.github.bonigarcia:webdrivermanager:3.6.2")
     compile group: 'javax.mail', name: 'mail', version: '1.4.1'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.17'
+    compile group: 'org.apache.poi', name: 'poi', version: '3.9'
 
 }
